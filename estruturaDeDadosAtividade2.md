@@ -1,0 +1,42 @@
+Exercícios de Array e Pilha
+
+        01. Crie uma função que recebe um array de 2 números e coloque eles em ordem crescente. Não
+        use o método sort.
+        02. Crie uma função que recebe um array de 3 números e coloque eles em ordem crescente. Crie
+        sua própria função para isso.
+        03. Crie um script que pergunte 3 números ao usuário, coloque em um array, depois exiba tal
+        array. Modifique os elementos do array de modo a a sequência de números ficar do contrário.
+        Ou seja, se digitou: 1,2,3
+        Vai aparecer: 3,2,1
+        04. Crie uma função que recebe um vetor e um número. Ela deve mostrar todos os índices onde
+        esse número aparece no vetor, e não só apenas o primeiro e/ou último índice em que o
+        número aparece (como nos métodos indexOf e lastIndexOf).
+        05. Crie um script que pede um inteiro positivo para o usuário. Em seguida, popule uma array
+        com os números de Fibonacci. Exiba o resultado usando o método join.
+        06. Faça o mesmo do exercício anterior, mas com fatorial.
+        Fatorial de 0: 0! = '
+        Fatorial de 1: 1 x elemento0 = 1
+        Fatorial de 2: 2 x elemento1 = 2
+        Fatorial de 3: 3 x elemento2 = 3 x 2 = 6
+        ...
+        Fatorial de n: n x elemento(n-1) = n x (n-1)! = n!
+        07. Peça ao usuário uma quantidade de linhas e outra de colunas, depois declare tal matriz,
+        inicialize todos os elementos de 1 até 'linha x coluna'. Para preencher cada elemento use a
+        soma dos seus índices.
+        08. Faça uma função para converter um número decimal em hexadecimal.
+        09. Escreva um programa que leia 10 números. Para cada número lido, verifique e codifique de
+        acordo com as regras a seguir:
+        a. Se o número for par, empilhe na pilha;
+        b. Se o número for ímpar, desempilhe um número da pilha. Caso a pilha esteja vazia,
+        mostre uma mensagem;
+        c. Se ao final do programa a pilha não estiver vazia, desempilhe todos os elementos,
+        imprimindo-os na tela.
+
+        10. Escreva um programa que leia 10 números. Para cada número lido, verifique e codifique de
+        acordo com as regras a seguir:
+        a. Se o número for par, empilhe na pilha chamada par;
+        b. Se o número for ímpar, empilhe na pilha chamada impar;
+        c. Se o número for zero (0), desempilhe um elemento de cada pilha. Caso alguma pilha
+        esteja vazia, mostre uma mensagem de erro na tela.
+        d. Ao final do programa desempilhe todos os elementos das duas pilhas, imprimindo-os na
+        tela

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Apply styles to the body or any specific element */
+        body {
+            overflow-y: scroll; /* This will add a vertical scrollbar */
+        }
+
+        /* Adjust styles as needed */
+        /* You can specify a fixed height or max-height to control when the scrollbar appears */
+        /* For example: */
+        /*
+        body {
+            max-height: 500px; 
+            overflow-y: scroll; 
+        }
+        */
+    </style>
+</head>
+<body>
+    <h3>Exercício 01</h3>
+    <h4>Crie uma função que recebe um array de 2 números e coloque eles em ordem crescente. Não use o método sort.</h4>
+    Primeira nota <input id="nota1-1" > <br/><br/>
+    Segunda nota <input id="nota2-1" > <br/><br/>
+    Resultado: <span id="result-1"></span> <br/><br/>
+    <button onclick="ordenar()">Ordenar</button>
+
+    <script>
+        function ordenar() {
+            const nota1 = parseFloat(document.getElementById('nota1-1').value);
+            const nota2 = parseFloat(document.getElementById('nota2-1').value);
+            
+            const array = [nota1, nota2];
+            console.log(array+" original");
+            if (array[0] > array[1]) {
+                const aux = array[0];
+                array[0] = array[1];
+                array[1] = aux;
+            }
+
+            document.getElementById("result-1").textContent = array;
+            console.log(array+" ordenado");
+            return array;
+        }
+    </script>
+    <hr/>
+
+    <h3>Exercício 02</h3>
+    <h4>Crie uma função que recebe um array de 3 números e coloque eles em ordem crescente. Crie sua própria função para isso.</h4>
+    Primeira nota <input id="nota1-2" > <br/><br/>
+    Segunda nota <input id="nota2-2" > <br/><br/>
+    Terceira nota <input id="nota3-2" > <br/><br/>
+    Resultado: <span id="result-2"></span> <br/><br/>
+    <button onclick="ordenar2()">Ordenar</button>
+
+    <script>
+        function ordenar2() {
+            const nota1 = parseFloat(document.getElementById('nota1-2').value);
+            const nota2 = parseFloat(document.getElementById('nota2-2').value);
+            const nota3 = parseFloat(document.getElementById('nota3-2').value);
+            
+            const array = [nota1, nota2, nota3];
+            console.log(array+" original");
+            if (array[0] > array[1]) {
+                const aux = array[0];
+                array[0] = array[1];
+                array[1] = aux;
+            }
+            if (array[1] > array[2]) {
+                const aux = array[1];
+                array[1] = array[2];
+                array[2] = aux;
+            }
+            if (array[0] > array[1]) {
+                const aux = array[0];
+                array[0] = array[1];
+                array[1] = aux;
+            }
+            document.getElementById("result-2").textContent = array;
+            console.log(array+" ordenado");
+            return array;
+        }
+    </script>
+    <hr/>
+
+    <h3>Exercício 03</h3>
+    <h4>Crie um script que pergunte 3 números ao usuário, coloque em um array, depois exiba tal array.<br/> Modifique os elementos do array de modo a sequência de números ficar do contrário. <br/>
+        Ou seja, se digitou: 1,2,3 <br/>
+        Vai aparecer: 3,2,1</h4><br/>
+    Primeira nota <input id="nota1-3" > <br/><br/>
+    Segunda nota <input id="nota2-3" > <br/><br/>
+    Terceira nota <input id="nota3-3" > <br/><br/>
+    ordem original: <span id="original-3"></span> <br/><br/>
+    ordem invertida: <span id="invertida-3"></span> <br/><br/>
+    <button onclick="ordenar3()">Ordenar e apresentar ordem inversa</button>
+        
+    <script>
+
+    function ordenar3() {
+        const nota1 = parseFloat(document.getElementById('nota1-3').value);
+        const nota2 = parseFloat(document.getElementById('nota2-3').value);
+        const nota3 = parseFloat(document.getElementById('nota3-3').value);
+        
+        const array = [nota1, nota2, nota3];
+        console.log(array+" original");
+        document.getElementById("original-3").textContent = array
+
+        const invertido = array.reverse();
+        console.log(invertido+" invertido");
+        document.getElementById("invertida-3").textContent = invertido;
+    }
+
+    </script>
+    <hr/>
+
+    <h3>Exercício 04</body></h3><h4>
+        Crie uma função que recebe um vetor e um número. <br/>Ela deve mostrar todos os índices onde esse número aparece no vetor, <br/>e não só apenas o primeiro e/ou último índice em que o número aparece (como nos métodos indexOf e lastIndexOf).
+    </h4>
+    insira numeros do vetor separados por virgula: <br/><input id="numeros-4" type="text"> <br/><br/>
+    insira um numero para procurar: <br><input id="procurar-4" > <br/><br/>
+    vetor inserido: <span id="vetor-4"></span> <br/>
+    numero procurado: <span id="procurado-4"></span> <br/>
+    indice do array contendo o valor procurado: <span id="result-4"></span><br/>
+    <button onclick="mostrarIndices()">Mostrar indices</button>
+
+    <script>
+    function mostrarIndices() {
+        const numeros = document.getElementById('numeros-4').value.split(',').map(Number);
+        const procurar = parseFloat(document.getElementById('procurar-4').value);
+        console.log("numeros: "+numeros);
+        console.log("numero procurado: "+procurar);
+        const indices = [];
+        for (let i = 0; i < numeros.length; i++) {
+            if (numeros[i] === procurar) {
+                indices.push(i);
+            }
+        }
+        console.log("indices: "+indices);
+        document.getElementById("procurado-4").textContent = procurar;
+        document.getElementById("vetor-4").textContent = numeros;
+        document.getElementById("result-4").textContent = indices;
+    }
+    </script>
+    <hr>
+    
+    <h3>Exercício 05</h3>
+    <h4>
+        Crie um script que pede um número para o usuário. Em seguida, popule uma array com os números de Fibonacci. Exiba o resultado usando o método join.
+    </h4>
+    digite um inteiro positivo: <input id="numeros-5" > <br/><br/>
+    <button onclick="mostrarFibonacci()">Mostrar Fibonacci</button>
+    <span id="result-5"></span>
+
+    <script>
+
+    function mostrarFibonacci() {
+        const num = parseFloat(document.getElementById('numeros-5').value);
+        const fibonacci = [0, 1];
+        for (let i = 2; i < num; i++) {
+            fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+        }
+        console.log("fibonacci: "+fibonacci);
+        document.getElementById("result-5").textContent = fibonacci;
+    }
+    </script>
+    <hr>
+
+
+    <h3>Exercício 06</h3>
+    <h4>Faça o mesmo do exercício anterior, mas com fatorial.</h4>
+    digite um inteiro positivo: <input id="numeros-6"> <br/><br/>
+    resultado: <span id="result-6"></span><br/><br/>
+    <button onclick="mostrarFatorial()">Mostrar Fatorial</button>
+
+    <script>
+    function mostrarFatorial() {
+        const num = parseInt(document.getElementById('numeros-6').value);
+        let fatorial = 1;
+        for (let i = 2; i <= num; i++) {
+            fatorial *= i;
+            console.log("fatorial: "+fatorial);
+        }
+        console.log(`fatorial de ${num} é: ` + fatorial);
+        document.getElementById("result-6").textContent = fatorial;
+    }
+    </script>
+    <hr>
+
+    <h3>Exercício 07</h3>
+    <h4>
+        Peça ao usuário uma quantidade de linhas e outra de colunas, depois declare tal matriz, <br/>
+        inicialize todos os elementos de 1 até 'linha x coluna'. Para preencher cada elemento use a <br/>
+        soma dos seus índices. <br/>
+    </h4>
+    
+    Linhas: <input id="linhas-7" type="number"> <br/><br/>
+    Colunas: <input id="colunas-7" type="number"> <br/><br/>
+    <button onclick="mostrarMatriz()">Mostrar Matriz</button><br/><br/> 
+    <span id="result-7"></span>
+    
+    <script>
+    function mostrarMatriz() {
+        const linhas = parseInt(document.getElementById('linhas-7').value);
+        const colunas = parseInt(document.getElementById('colunas-7').value);
+        const matriz = [];
+        let output = '';
+    
+        for (let i = 0; i < linhas; i++) {
+            const linha = [];
+            for (let j = 0; j < colunas; j++) {
+                const elemento = i + j;
+                linha.push(elemento);
+                output += elemento + "    ";
+            }
+            matriz.push(linha);
+            output += "<br/>";
+        }
+        console.table(matriz);
+        document.getElementById("result-7").innerHTML = output;
+    }
+    </script>
+    <hr>
+    
+
+    <h3>Exercício 08</h3>
+    <h4> faça uma função para converter um numero decimal em hexadecimal.</h4>
+    digite numero decimal: <input id="numeros-8"> <br/><br/>
+    resultado: <span id="result-8"></span><br/><br/>
+    <button onclick="mostrarHexadecimal()">Mostrar Hexadecimal</button>
+
+    <script>
+    function mostrarHexadecimal() {
+        const num = parseInt(document.getElementById('numeros-8').value);
+        const hexadecimal = num.toString(16);
+        console.log("hexadecimal: "+hexadecimal);
+        document.getElementById("result-8").textContent = hexadecimal;
+    }
+    </script>
+    <hr>
+
+    <h3>Exercício 09</h3>
+<h4>Escreva um programa que leia 10 números.<br/> Para cada número lido, verifique e codifique de acordo com as regras a seguir:<br/>
+     a. Se o número for par, empilhe na pilha;<br/>
+     b. Se o número for ímpar, desempilhe um número da pilha. Caso a pilha esteja vazia, mostre uma mensagem;<br/>
+     c. Se ao final do programa a pilha não estiver vazia, desempilhe todos os elementos, imprimindo-os na tela.<br/>
+</h4>
+Digite 10 números separados por vírgula: <input id="numeros-9"> <br/><br/>
+Resultado: <span id="result-9"></span><br/><br/>
+<button onclick="mostrarPilha()">Mostrar Pilha</button>
+
+<script>
+function mostrarPilha() {
+    const numeros = document.getElementById('numeros-9').value.split(',').map(Number);
+    const pilha = [];
+    const mensagens = [];
+
+    for (let i = 0; i < numeros.length; i++) {
+        const elemento = numeros[i];
+
+        if (elemento % 2 === 0) {
+            // Se o número for par, empilhe na pilha
+            pilha.push(elemento);
+            mensagens.push(`Elemento ${elemento} adicionado à pilha.`);
+        } else {
+            // Se o número for ímpar, desempilhe um número da pilha. Caso a pilha esteja vazia, mostre uma mensagem
+            if (pilha.length > 0) {
+                pilha.pop();
+                mensagens.push(`Elemento ímpar encontrado, um elemento removido da pilha.`);
+            } else {
+                mensagens.push("Tentativa de desempilhar um número ímpar, mas a pilha está vazia.");
+            }
+        }
+    }
+
+    // Se ao final do programa a pilha não estiver vazia, desempilhe todos os elementos, imprimindo-os na tela
+    while (pilha.length > 0) {
+        const elemento = pilha.pop();
+        mensagens.push(`Elemento ${elemento} desempilhado.`);
+    }
+
+    // Exibir mensagens no console
+    console.log("Saída no console:");
+    mensagens.forEach(msg => console.log(msg));
+
+    // Exibir mensagens na página HTML
+    document.getElementById("result-9").innerHTML = "Saída na página HTML:<br/>" + mensagens.join("<br/>");
+}
+</script>
+<hr>
+
+<h3>Exercício 10</h3>
+<h4>Escreva um programa que leia 10 números. Para cada número lido, verifique e codifique de
+    acordo com as regras a seguir:<br/>
+    a. Se o número for par, empilhe na pilha chamada par;<br/>
+    b. Se o número for ímpar, empilhe na pilha chamada impar;<br/>
+    c. Se o número for zero (0), desempilhe um elemento de cada pilha. Caso alguma pilha
+    esteja vazia, mostre uma mensagem de erro na tela.<br/>
+    d. Ao final do programa desempilhe todos os elementos das duas pilhas, imprimindo-os na
+    tela<br/></h4>
+    digite 10 números separados por virgula: <input id="numeros-10"><br/>
+    <button onclick="mostrarPilha()">Mostrar Pilha</button><br/>
+    resultado: <div id="result-10"></div><br/>
+
+    <script>
+        function mostrarPilha() {
+            const numeros = document.getElementById('numeros-10').value.split(',').map(Number);
+            const pilhaPar = [];
+            const pilhaImpar = [];
+            const mensagens = [];
+
+            for (let i = 0; i < numeros.length; i++) {
+                const elemento = numeros[i];
+
+
+                if (elemento === 0) {
+                    // Se o número for zero (0), desempilhe um elemento de cada pilha. Caso alguma pilha esteja vazia, mostre uma mensagem de erro na tela
+                    if (pilhaPar.length > 0) {
+                        pilhaPar.pop();
+                        mensagens.push(`Elemento 0 encontrado, um elemento removido da pilha par.`);
+                    } else if (pilhaImpar.length > 0) {
+                        pilhaImpar.pop();
+                        mensagens.push(`Elemento 0 encontrado, um elemento removido da pilha impar.`);
+                    } else {
+                        mensagens.push("Tentativa de desempilhar um elemento 0, mas as duas pilhas são vazias.");
+                    }
+                } else if (elemento % 2 === 0) {
+                    // Se o número for par, empilhe na pilha par
+                    pilhaPar.push(elemento);
+                    mensagens.push(`Elemento ${elemento} adicionado à pilha par.`);
+                } else {
+                    // Se o número for ímpar, empilhe na pilha impar
+                    pilhaImpar.push(elemento);
+                    mensagens.push(`Elemento ${elemento} adicionado à pilha impar.`);
+                }
+            }
+            console.log("pilhaPar: "+pilhaPar);
+            console.log("pilhaImpar: "+pilhaImpar);
+
+            // Se ao final do programa as duas pilhas não estiverem vazias, desempilhe todos os elementos das duas pilhas, imprimindo-os na tela
+            if (pilhaPar.length > 0 && pilhaImpar.length > 0) {
+                while (pilhaPar.length > 0) {
+                    const elemento = pilhaPar.pop();
+                    mensagens.push(`Elemento ${elemento} desempilhado da pilha par.`);
+                }
+                while (pilhaImpar.length > 0) {
+                    const elemento = pilhaImpar.pop();
+                    mensagens.push(`Elemento ${elemento} desempilhado da pilha impar.`);
+                }
+            } else {
+                mensagens.push("Tentativa de desempilhar um elemento, mas as duas pilhas são vazias.");
+            }
+
+            // Exibir mensagens no console
+            console.log("Saída no console:");
+            mensagens.forEach(msg => console.log(msg));
+
+            // Exibir mensagens na página HTML
+            document.getElementById("result-10").innerHTML = "Saída na página HTML:<br/>" + mensagens.join("<br/>");
+        }
+    </script>
+</body>
+</html>
